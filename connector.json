@@ -1,0 +1,26 @@
+{
+  "name": "debezium-connector-1",
+  "config": {
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "admin",
+    "database.password": "admin",
+    "database.dbname": "shop",
+    "database.server.name": "shop",
+    "table.whitelist": "public.users, public.orders",
+    "transforms": "unwrap",
+    "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+    "transforms.unwrap.drop.tombstones": "false",
+    "transforms.unwrap.delete.handling.mode": "rewrite",
+    "topic.prefix": "mitenev",
+    "topic.creation.enable": "true",
+    "topic.creation.default.replication.factor": "-1",
+    "topic.creation.default.partitions": "-1",
+    "signal.data.collection": "true",
+    "signal.kafka.key": "true",
+    "signal.kafka.value": "true",
+    "skipped.operations": "none",
+    "name": "debezium-connector-1"
+  }
+}
